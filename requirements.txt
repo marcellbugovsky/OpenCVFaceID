@@ -1,0 +1,5 @@
+# OpenCVFaceID/requirements.txt
+opencv-python>=4.5      # For camera, image processing, DNN module
+numpy>=1.20             # For numerical operations
+PyYAML>=5.4             # For loading the config file
+scikit-learn>=1.0       # For calculating distance/similarity

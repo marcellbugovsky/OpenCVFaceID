@@ -1,0 +1,36 @@
+# OpenCVFaceID/.gitignore
+
+# Virtual Environment
+venv/
+*/venv/
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE files (PyCharm)
+.idea/
+*.iml
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Downloaded Models
+# models/detection/*
+# models/recognition/*
+# !models/detection/.gitkeep
+# !models/recognition/.gitkeep
+
+# Generated database
+# database/*.pkl
+# database/*.json
+# !database/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db

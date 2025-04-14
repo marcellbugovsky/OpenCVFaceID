@@ -1,0 +1,27 @@
+# OpenCVFaceID/config/config.yaml
+
+# --- File Paths ---
+known_faces_dir: "known_faces"          # Relative path to known faces images
+models_dir: "models"                    # Relative path to downloaded AI models
+database_dir: "database"                # Relative path for the embeddings DB file
+db_file: "known_face_encodings.pkl"   # Filename for the embeddings database
+
+# --- Camera Settings ---
+camera_index: 0                         # 0 is usually the default built-in webcam
+
+# --- Processing Settings ---
+# Models to use (we'll add specific model filenames later)
+detector_model: "opencv_ssd_resnet10"   # Example placeholder name
+recognizer_model: "opencv_facenet"      # Example placeholder name
+
+# Confidence threshold for face detection (e.g., ignore detections below 50% confidence)
+detection_threshold: 0.5
+
+# Threshold for face matching (lower distance = better match for Euclidean, higher for Cosine)
+# This needs tuning! Start with a reasonable guess.
+recognition_threshold_distance: 0.6     # Example for Euclidean Distance
+# recognition_threshold_similarity: 0.7   # Example for Cosine Similarity (use one or the other)
+
+# --- UI Settings ---
+display_window_name: "OpenCVFaceID - Live Recognition"
+unknown_person_label: "Unknown"
