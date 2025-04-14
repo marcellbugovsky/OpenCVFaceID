@@ -1,27 +1,36 @@
 # OpenCVFaceID/config/config.yaml
 
 # --- File Paths ---
-known_faces_dir: "known_faces"          # Relative path to known faces images
-models_dir: "models"                    # Relative path to downloaded AI models
-database_dir: "database"                # Relative path for the embeddings DB file
-db_file: "known_face_encodings.pkl"   # Filename for the embeddings database
+known_faces_dir: "known_faces"
+models_dir: "models"
+database_dir: "database"
+db_file: "known_face_encodings.pkl"
 
 # --- Camera Settings ---
-camera_index: 0                         # 0 is usually the default built-in webcam
+camera_index: 0
 
 # --- Processing Settings ---
-# Models to use (we'll add specific model filenames later)
-detector_model: "opencv_ssd_resnet10"   # Example placeholder name
-recognizer_model: "opencv_facenet"      # Example placeholder name
+# Face Detection Model (OpenCV DNN Caffe ResNet10-SSD)
+detector:
+  # Note: Paths are relative to the project root OR specify absolute paths
+  prototxt_path: "models/detection/deploy.prototxt"
+  model_path: "models/detection/res10_300x300_ssd_iter_140000.caffemodel"
+  # Confidence threshold: Ignore detections below this value (e.g., 0.5 = 50%)
+  confidence_threshold: 0.5
+  # Input blob size expected by this model
+  input_width: 300
+  input_height: 300
+  # Mean subtraction values used during training (often found with the model)
+  mean_subtraction: [104.0, 177.0, 123.0] # Order is often B, G, R
 
-# Confidence threshold for face detection (e.g., ignore detections below 50% confidence)
-detection_threshold: 0.5
+# Face Recognizer Model (Placeholder for now)
+recognizer_model: "opencv_facenet" # We'll define this later
 
-# Threshold for face matching (lower distance = better match for Euclidean, higher for Cosine)
-# This needs tuning! Start with a reasonable guess.
-recognition_threshold_distance: 0.6     # Example for Euclidean Distance
-# recognition_threshold_similarity: 0.7   # Example for Cosine Similarity (use one or the other)
+# Threshold for face matching (lower distance = better match) - Needs tuning!
+recognition_threshold_distance: 0.6
 
 # --- UI Settings ---
 display_window_name: "OpenCVFaceID - Live Recognition"
 unknown_person_label: "Unknown"
+# Color for bounding boxes (BGR format)
+box_color: [0, 255, 0] # Green
