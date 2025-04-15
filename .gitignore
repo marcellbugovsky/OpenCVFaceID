@@ -32,7 +32,7 @@ database/*.json
 !database/.gitkeep
 
 # Known Faces
-known_faces/*
+known_faces/
 !known_faces/.gitkeep
 
 # OS generated files
