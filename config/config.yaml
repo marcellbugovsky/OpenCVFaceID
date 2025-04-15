@@ -1,9 +1,9 @@
 # OpenCVFaceID/config/config.yaml
 
 # --- File Paths ---
-known_faces_dir: "known_faces"
+known_faces_dir: "../known_faces"
 models_dir: "models"
-database_dir: "database"
+database_dir: "../database"
 db_file: "known_face_encodings.pkl"
 
 # --- Camera Settings ---
@@ -12,19 +12,25 @@ camera_index: 0
 # --- Processing Settings ---
 # Face Detection Model (OpenCV DNN Caffe ResNet10-SSD)
 detector:
-  # Note: Paths are relative to the project root OR specify absolute paths
-  prototxt_path: "models/detection/deploy.prototxt"
-  model_path: "models/detection/res10_300x300_ssd_iter_140000.caffemodel"
-  # Confidence threshold: Ignore detections below this value (e.g., 0.5 = 50%)
+  # Using user-provided relative paths
+  prototxt_path: "../models/detection/deploy.prototxt"
+  model_path: "../models/detection/res10_300x300_ssd_iter_140000.caffemodel"
   confidence_threshold: 0.5
-  # Input blob size expected by this model
   input_width: 300
   input_height: 300
-  # Mean subtraction values used during training (often found with the model)
-  mean_subtraction: [104.0, 177.0, 123.0] # Order is often B, G, R
+  mean_subtraction: [104.0, 177.0, 123.0]
 
-# Face Recognizer Model (Placeholder for now)
-recognizer_model: "opencv_facenet" # We'll define this later
+# --- Face Recognition Model (ONNX) --- ADD THIS SECTION ---
+recognizer:
+  # Using relative path, adjust if needed based on where you run from
+  model_path: "../models/recognition/face_recognition_sface_2021dec.onnx"
+  # Input size expected by this specific ONNX model
+  input_width: 112
+  input_height: 112
+  # Preprocessing: Does the model expect BGR or RGB? Scale factor?
+  # Common for many ONNX face models: Input is BGR, scaled 0-1 or similar. Check model specifics.
+  scale_factor: 0.00392156862745098 # Example: Scale pixel values to 0-1 range
+  swap_rb: False # Keep BGR if model expects BGR
 
 # Threshold for face matching (lower distance = better match) - Needs tuning!
 recognition_threshold_distance: 0.6
@@ -32,5 +38,4 @@ recognition_threshold_distance: 0.6
 # --- UI Settings ---
 display_window_name: "OpenCVFaceID - Live Recognition"
 unknown_person_label: "Unknown"
-# Color for bounding boxes (BGR format)
 box_color: [0, 255, 0] # Green
