@@ -21,15 +21,19 @@ dist/
 *.egg
 
 # Downloaded Models
-# models/detection/*
-# models/recognition/*
-# !models/detection/.gitkeep
-# !models/recognition/.gitkeep
+models/detection/*
+models/recognition/*
+!models/detection/.gitkeep
+!models/recognition/.gitkeep
 
 # Generated database
-# database/*.pkl
-# database/*.json
-# !database/.gitkeep
+database/*.pkl
+database/*.json
+!database/.gitkeep
+
+# Known Faces
+known_faces/*
+!known_faces/.gitkeep
 
 # OS generated files
 .DS_Store
