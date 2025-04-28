@@ -24,7 +24,6 @@ Dieses Projekt implementiert eine Pipeline zur Gesichtserkennung in Echtzeit:
     * OpenCV (`opencv-python`): Für Bild-/Videoverarbeitung, DNN-Modul, Kamera-Zugriff.
     * NumPy (`numpy`): Für numerische Operationen, insbesondere Vektorberechnungen (Embeddings, Distanzen).
     * PyYAML (`PyYAML`): Zum Laden der Konfigurationsdatei (`config.yaml`).
-    * *Optional:* `scikit-learn` (in `requirements.txt` gelistet, aber die Kernfunktionalität scheint `numpy.linalg.norm` zu verwenden).
 
 ## Verwendete Modelle
 
