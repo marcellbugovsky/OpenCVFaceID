@@ -33,7 +33,7 @@ recognizer:
   swap_rb: False # Keep BGR if model expects BGR
 
 # Threshold for face matching (lower distance = better match) - Needs tuning!
-recognition_threshold_distance: 0.6
+recognition_threshold_distance: 0.5
 
 # --- UI Settings ---
 display_window_name: "OpenCVFaceID - Live Recognition"
